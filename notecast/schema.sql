@@ -1,10 +1,10 @@
 DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS cast;
 
 CREATE TABLE user (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     email TEXT UNIQUE NOT NULL,
-    password TEXT NOT NULL,
+    password TEXT NOT NULL
 );
 
 CREATE TABLE cast (
@@ -13,5 +13,5 @@ CREATE TABLE cast (
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     title TEXT NOT NULL,
     script TEXT NOT NULL,
-    FORIEGN KEY (author_id) REFERENCES user (id)
-)
+    FOREIGN KEY (author_id) REFERENCES user (id)
+);
