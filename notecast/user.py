@@ -9,4 +9,4 @@ from flask import (
 from werkzeug.security import check_password_hash, generate_password_hash
 from notecast.database import get_db
 
-blueprint = Blueprint("authenticate", __name__, url_prefix="/authenticate")
+blueprint = Blueprint("user", __name__, url_prefix="/user")

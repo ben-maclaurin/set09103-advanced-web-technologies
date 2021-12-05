@@ -27,9 +27,9 @@ def create_app(test_config=None):
     database.init_app(app)
 
 
-    # Initialise authentication
-    from . import authenticate
-    app.register_blueprint(authenticate.blueprint)
+    # Initialise user
+    from . import user
+    app.register_blueprint(user.blueprint)
 
     @app.route("/")
     def index():
