@@ -26,6 +26,11 @@ def create_app(test_config=None):
     from . import database
     database.init_app(app)
 
+
+    # Initialise authentication
+    from . import authenticate
+    app.register_blueprint(authenticate.blueprint)
+
     @app.route("/")
     def index():
         return "Notecast"
