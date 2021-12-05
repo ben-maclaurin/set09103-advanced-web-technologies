@@ -6,7 +6,7 @@ import click
 from flask import current_app, g
 from flask.cli import with_appcontext
 
-def get_db():
+def get_database():
     if 'db' not in g:
         g.db = sqlite3.connect(
             current_app.config['DATABASE'],
@@ -16,24 +16,24 @@ def get_db():
 
     return g.db
 
-def close_db(e=None):
+def close_database(e=None):
     db = g.pop('db', None)
 
     if db is not None:
         db.close()
 
-def init_db():
-    db = get_db()
+def init_database():
+    db = get_database()
 
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
 
-@click.command('init-db')
+@click.command('init-database')
 @with_appcontext
-def init_db_command():
-    init_db()
+def init_database_command():
+    init_database()
     click.echo('Database initialised')
 
 def init_app(app):
-    app.teardown_appcontext(close_db)
-    app.cli.add_command(init_db_command)
+    app.teardown_appcontext(close_database)
+    app.cli.add_command(init_database_command)
