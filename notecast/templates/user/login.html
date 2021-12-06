@@ -4,12 +4,21 @@
 <h1>{% block title %}Login{% endblock %}</h1>
 {% endblock %}
 
-{% block content %}
-<form method="post">
-  <label for="email">Email</label>
-  <input name="email" id="email" required />
-  <label for="password">Password</label>
-  <input type="password" name="password" for="password" id="password" required />
-  <input type="submit" value="Login">
-</form>
-{% endblock %}
+  {% block content %}
+<div class="center">
+  <div>
+    <p class="heading-one">Login</p>
+    <form method="post">
+      <div>
+        <div>
+          <input placeholder="Enter email address ..." class="input-field" name="email" id="email" style="width: 331px" required />
+        </div>
+        <div>
+          <input placeholder="Enter password ..." class="input-field" type="password" name="password" for="password" style="margin-top: 8px; width: 331px" id="password" required />
+        </div>
+        <input class="button" type="submit" style="min-width: 350px; margin-top: 19px" value="Login">
+      </div>
+    </form>
+  </div>
+</div>
+  {% endblock %}
