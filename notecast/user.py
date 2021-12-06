@@ -37,10 +37,7 @@ def sign_up():
 
         if error is None:
             try:
-                database.execute(
-                    "INSERT INTO user (email, password) VALUES (?, ?)",
-                    (email, generate_password_hash(password)),
-                )
+                database.execute("INSERT INTO user (email, password) VALUES (?, ?)", (email, generate_password_hash(password)),)
                 database.commit()
             except database.IntegrityError:
                 error = f"A user with that email address already exists."
@@ -49,6 +46,30 @@ def sign_up():
         flash(error)
 
     return render_template("user/signup.html")
+
+@blueprint.route("/login", methods=("GET", "POST"))
+def login():
+    if request.method == "POST":
+        email = request.form["email"]
+        password = request.form["password"]
+        database = get_database()
+        error = None
+
+        user = database.execute("SELECT * FROM user WHERE email = ?", (email,)).fetchone()
+
+        if user is None:
+            error = "A user with that email does not exist"
+        elif not check_password_hash(user["password"], password):
+            error = "Email or password is incorrect."
+
+        if error is None:
+            session.clear()
+            session["user_id"] = user["id"]
+            return redirect(url_for("index"))
+
+        flash(error)
+
+    return render_template("user/login.html")
 
 @blueprint.route("/logout")
 def logout():
