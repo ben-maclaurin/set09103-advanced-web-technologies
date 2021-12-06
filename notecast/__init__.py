@@ -26,10 +26,13 @@ def create_app(test_config=None):
     from . import database
     database.init_app(app)
 
-
     # Initialise user
     from . import user
     app.register_blueprint(user.blueprint)
+
+    # Initialise cast
+    from . import cast
+    app.register_blueprint(cast.blueprint)
 
     @app.route("/")
     def index():
