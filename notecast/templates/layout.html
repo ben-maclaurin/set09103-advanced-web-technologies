@@ -2,4 +2,8 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
+{% for message in get_flashed_messages() %}
+    <div>{{ message }}</div>
+{% endfor %}
+
 {% block content %}{% endblock %}

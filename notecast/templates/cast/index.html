@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {% for cast in casts %}]
+        <p>{cast["title"]}</p>
+    {% endfor %}
+{% endblock %}
