@@ -34,7 +34,7 @@ def create_app(test_config=None):
     app.register_blueprint(user.blueprint)
 
     # Initialise cast
-    from . import cast
+    from notecast.controllers import cast
 
     app.register_blueprint(cast.blueprint)
 

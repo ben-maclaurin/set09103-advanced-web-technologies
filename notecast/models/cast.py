@@ -6,9 +6,9 @@ def get_casts():
     database = get_database()
 
     casts = database.execute(
-        "SELECT c.id, title, script, created, author_id, email"
-        "FROM cast c JOIN user u ON c.author_id = u.id"
-        "ORDER BY created DESC"
+        'SELECT c.id, title, script, created, author_id'
+        ' FROM cast c JOIN user u ON c.author_id = u.id'
+        ' ORDER BY created DESC'
     ).fetchall()
 
     return casts
