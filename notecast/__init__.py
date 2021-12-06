@@ -29,7 +29,7 @@ def create_app(test_config=None):
     database.init_app(app)
 
     # Initialise user
-    from . import user
+    from notecast.controllers import user
 
     app.register_blueprint(user.blueprint)
 

@@ -4,7 +4,7 @@ from flask import Blueprint, flash, g, redirect, render_template, request, url_f
 
 from werkzeug.exceptions import abort
 
-from notecast.user import protected
+from notecast.controllers.user import protected
 from notecast.database import get_database
 
 # These are named "casts" instead of "notecasts" to avoid conflict with project name

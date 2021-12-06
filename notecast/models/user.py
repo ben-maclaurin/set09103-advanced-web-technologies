@@ -42,7 +42,7 @@ def authenticate_user(email, password):
     elif not check_password_hash(user["password"], password):
         error = "Email or password is incorrect."
 
-    return error
+    return error, user
 
 
 def get_user(id):

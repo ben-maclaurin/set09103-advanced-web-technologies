@@ -51,14 +51,14 @@ def login():
         email = request.form["email"]
         password = request.form["password"]
 
-        result = authenticate_user(email, password)
+        error, user = authenticate_user(email, password)
 
-        if result is not None:
-            flash(result)
-    else:
-        session.clear()
-        session["user_id"] = user["id"]
-        return redirect(url_for("index"))
+        if error is not None:
+            flash(error)
+        else:
+            session.clear()
+            session["user_id"] = user["id"]
+            return redirect(url_for("index"))
 
     return render_template("user/login.html")
 
