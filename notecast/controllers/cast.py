@@ -29,6 +29,6 @@ def create():
         if result is not None:
             flash(result)
         else:
-            return redirect(url_for('cast.index'))
+            return redirect(url_for("cast.index"))
 
     return render_template("cast/create.html")
