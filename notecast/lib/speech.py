@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import requests
 import os
+import boto3
+import uuid
 
 
 def retrieve_token():
@@ -38,4 +40,11 @@ def synthesise_speech(script):
         headers=headers,
     )
 
-    print(response.text)
+    upload_to_s3(response.content)
+
+
+def upload_to_s3(file):
+    s3 = boto3.resource("s3")
+    s3.Bucket("notecast-bucket").put_object(
+        Key="casts/" + str(uuid.uuid4()) + ".mp3", Body=file
+    )
