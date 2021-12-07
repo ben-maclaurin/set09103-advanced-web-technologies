@@ -17,6 +17,9 @@
           <input placeholder="Enter password ..." class="input-field" type="password" name="password" for="password" style="margin-top: 8px; width: 331px" id="password" required />
         </div>
         <input class="button" type="submit" style="min-width: 350px; margin-top: 19px" value="Sign up">
+  {% for message in get_flashed_messages() %}
+      <p style="color: #E70F0F; text-align: center;">{{ message }}</p>
+  {% endfor %}
       </div>
     </form>
   </div>
