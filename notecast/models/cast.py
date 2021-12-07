@@ -22,6 +22,8 @@ def create_cast(title, script, user_id):
         error = "A title is required"
     elif not script:
         error = "A script is required"
+    elif len(script) > 500:
+        error = "Script is too long"
     else:
         database = get_database()
 
