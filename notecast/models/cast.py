@@ -2,6 +2,7 @@
 from notecast.database import get_database
 from notecast.lib.speech import synthesise_speech
 import uuid
+import os
 
 
 def get_casts():
@@ -28,7 +29,7 @@ def create_cast(title, script, user_id):
     else:
         database = get_database()
 
-        name = uuid.uuid4()
+        name = str(uuid.uuid4())
 
         database.execute(
             "INSERT INTO cast (title, script, location, author_id)" "VALUES (?, ?, ?, ?)",
@@ -37,6 +38,6 @@ def create_cast(title, script, user_id):
 
         database.commit()
 
-        synthesise_speech(script)
+        synthesise_speech(script, name)
 
     return error
