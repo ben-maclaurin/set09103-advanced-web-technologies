@@ -9,7 +9,7 @@ from notecast.database import get_database
 from notecast.models.cast import get_casts, create_cast
 
 # These are named "casts" instead of "notecasts" to avoid conflict with project name
-blueprint = Blueprint("cast", __name__, url_prefix="/cast")
+blueprint = Blueprint("cast", __name__, url_prefix="/")
 
 
 @blueprint.route("/")

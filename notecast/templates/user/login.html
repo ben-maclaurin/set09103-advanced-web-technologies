@@ -1,10 +1,6 @@
 {% extends 'layout.html' %}
 
-{% block header %}
-<h1>{% block title %}Login{% endblock %}</h1>
-{% endblock %}
-
-  {% block content %}
+{% block content %}
 <div class="center">
   <div>
     <p class="heading-one" style="margin-bottom: 40px;">Login</p>
@@ -17,12 +13,12 @@
           <input placeholder="Enter password ..." class="input-field" type="password" name="password" for="password" style="margin-top: 8px; width: 331px" id="password" required />
         </div>
         <input class="button" type="submit" style="min-width: 350px; margin-top: 19px" value="Login">
-  {% for message in get_flashed_messages() %}
-      <p style="color: #E70F0F; text-align: center;">{{ message }}</p>
-  {% endfor %}
+        {% for message in get_flashed_messages() %}
+            <p style="color: #E70F0F; text-align: center;">{{ message }}</p>
+        {% endfor %}
       </div>
     </form>
-    <a href="/user/signup"><p style="margin-top: 24px; text-align: center;">Don't have an account?</p></a>
+    <a href="/user/signup"><p style="margin-top: 24px; font-size: 12px; text-align: center;">Don't have an account?</p></a>
   </div>
 </div>
-  {% endblock %}
+{% endblock %}

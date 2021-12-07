@@ -32,7 +32,8 @@ def create_cast(title, script, user_id):
         name = str(uuid.uuid4())
 
         database.execute(
-            "INSERT INTO cast (title, script, location, author_id)" "VALUES (?, ?, ?, ?)",
+            "INSERT INTO cast (title, script, location, author_id)"
+            "VALUES (?, ?, ?, ?)",
             (title, script, os.environ.get("BUCKET_URL") + name + ".mp3", user_id),
         )
 

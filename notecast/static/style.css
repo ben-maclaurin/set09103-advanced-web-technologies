@@ -1,5 +1,7 @@
 * {
   font-family: system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .center {
@@ -59,4 +61,34 @@ a {
   padding-top: 14px;
   padding-bottom: 14px;
   font-weight: 500;
+}
+
+/* I know what you're thinking, 'cause right now I'm thinking the same thing. */
+.blue-pill {
+  border-radius: 99px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: #9ED8F5;
+  border: 1px solid #9ED8F5;
+  color: #004263;
+}
+
+.purple-pill {
+  border-radius: 99px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: #E0D1FB;
+  border: 1px solid #E0D1FB;
+  color: #21005B;
+}
+
+.blue-pill-text {
+}
+
+.purple-pill-text {
+  color: #9ED8F5;
 }

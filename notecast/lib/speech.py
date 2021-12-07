@@ -45,7 +45,4 @@ def synthesise_speech(script, name):
 def upload_to_s3(file, name):
     s3 = boto3.resource("s3")
 
-    s3.Bucket("notecast-bucket").put_object(
-        Key="casts/" + name + ".mp3", Body=file
-    )
-
+    s3.Bucket("notecast-bucket").put_object(Key="casts/" + name + ".mp3", Body=file)

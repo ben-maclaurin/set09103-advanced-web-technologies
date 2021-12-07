@@ -1,13 +1,9 @@
 {% extends 'layout.html' %}
 
-{% block header %}
-<h1>{% block title %}Create a notecast{% endblock %}</h1>
-{% endblock %}
-
-  {% block content %}
+{% block content %}
 <div class="center">
   <div>
-    <p class="heading-one">Create</p>
+    <p class="heading-one" style="margin-bottom: 40px;">Create</p>
     <form method="post">
       <div>
         <div>
@@ -17,8 +13,11 @@
           <textarea placeholder="Enter a script ..." class="input-field" name="script" for="script" style="resize: vertical; margin-top: 8px; width: 331px" id="script" required></textarea>
         </div>
         <input class="button" type="submit" style="min-width: 350px; margin-top: 19px" value="Create">
+        {% for message in get_flashed_messages() %}
+            <p style="color: #E70F0F; text-align: center;">{{ message }}</p>
+        {% endfor %}
       </div>
     </form>
   </div>
 </div>
-  {% endblock %}
+{% endblock %}
