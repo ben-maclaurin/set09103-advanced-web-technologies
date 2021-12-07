@@ -2,9 +2,12 @@
 
 {% block content %}
     <p class="heading-one" style="margin-bottom: 16px">Notecasts</p>
-    <div style="display: flex;">
-        <div class="blue-pill">{{ casts|length }} notecasts</div>
-        <div class="purple-pill" style="margin-left: 6px">{{ casts|length }} notecasts</div>
+    <div style="display: flex; width: 100%;">
+            <div class="blue-pill">{{ casts|length }} notecasts</div>
+            <div class="purple-pill" style="margin-left: 6px">{{ casts|length }} notecasts</div>
+            <form action="/create" style="margin-left: auto;">
+                <input class="small-button" type="submit" style="padding-left: 12px; padding-right: 12px" value="Create a notecast">
+            </form>
     </div>
     {% for cast in casts %}
         <p>{{ cast["title"] }}</p>
