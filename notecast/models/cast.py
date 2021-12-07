@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from notecast.database import get_database
+from notecast.lib.speech import synthesise_speech
 
 
 def get_casts():
@@ -29,5 +30,7 @@ def create_cast(title, script, user_id):
             (title, script, user_id),
         )
         database.commit()
+
+        synthesise_speech(script)
 
     return error
