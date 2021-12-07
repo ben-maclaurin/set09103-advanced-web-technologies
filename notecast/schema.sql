@@ -13,5 +13,6 @@ CREATE TABLE cast (
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     title TEXT NOT NULL,
     script TEXT NOT NULL,
+    location TEXT NOT NULL,
     FOREIGN KEY (author_id) REFERENCES user (id)
 );

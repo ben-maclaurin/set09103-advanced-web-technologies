@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from notecast.database import get_database
 from notecast.lib.speech import synthesise_speech
+import uuid
 
 
 def get_casts():
@@ -27,10 +28,13 @@ def create_cast(title, script, user_id):
     else:
         database = get_database()
 
+        name = uuid.uuid4()
+
         database.execute(
-            "INSERT INTO cast (title, script, author_id)" "VALUES (?, ?, ?)",
-            (title, script, user_id),
+            "INSERT INTO cast (title, script, location, author_id)" "VALUES (?, ?, ?, ?)",
+            (title, script, os.environ.get("BUCKET_URL") + name + ".mp3", user_id),
         )
+
         database.commit()
 
         synthesise_speech(script)
