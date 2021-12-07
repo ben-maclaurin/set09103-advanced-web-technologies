@@ -3,5 +3,6 @@
 {% block content %}
     {% for cast in casts %}
         <p>{{ cast["title"] }}</p>
+        <audio controls src="{{ cast['location'] }}"></audio>
     {% endfor %}
 {% endblock %}
