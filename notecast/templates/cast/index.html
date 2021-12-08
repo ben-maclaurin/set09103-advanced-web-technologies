@@ -22,12 +22,7 @@
     {% endfor %}
 
     {% for cast in casts %}
-        <p>{{ cast["title"] }}</p>
-        <audio ontimeupdate="updateTime({{ cast['id'] }})" id="{{ cast['id'] }}" controls src="{{ cast['location'] }}"></audio>
-        <p>{{ cast["created"] }}</p>
-        <button onclick="play({{ cast['id'] }})">play</button>
-        <script>
-        </script>
+        <audio style="display: none;" ontimeupdate="updateTime({{ cast['id'] }})" id="{{ cast['id'] }}" controls src="{{ cast['location'] }}"></audio>
     {% endfor %}
         </div>
 
