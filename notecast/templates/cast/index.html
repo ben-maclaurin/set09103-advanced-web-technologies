@@ -3,7 +3,7 @@
 {% block content %}
 <div style="margin-left: 100px; margin-right: 100px; margin-top: 75px;">
     <p class="heading-one" style="margin-bottom: 16px">Notecasts</p>
-    <div style="display: flex; width: 100%;">
+    <div style="margin-bottom: 50px; display: flex; width: 100%;">
             <div class="blue-pill">{{ casts|length }} notecasts</div>
             <div class="purple-pill" style="margin-left: 6px">{{ casts|length }} notecasts</div>
             <form action="/create" style="margin-left: auto;">
@@ -11,8 +11,40 @@
             </form>
     </div>
     {% for cast in casts %}
+    <div class="notecast">
+        <img onclick="play({{ cast['id'] }})" id="{{ cast['id'] }}-icon" width="40" src="../../static/play.svg" />
+    </div>
+    {% endfor %}
+
+    {% for cast in casts %}
         <p>{{ cast["title"] }}</p>
-        <audio id="audio" controls src="{{ cast['location'] }}"></audio>
+        <audio id="{{ cast['id'] }}" controls src="{{ cast['location'] }}"></audio>
+        <p>{{ cast["created"] }}</p>
+        <button onclick="play({{ cast['id'] }})">play</button>
+        <script>
+        </script>
     {% endfor %}
         </div>
+
+<script>
+    const play = (id) => {
+        const audio = document.getElementById(id)
+        const icon = document.getElementById(`${id}-icon`)
+
+        audio.addEventListener('ended', () => end(icon))
+
+        if (audio.paused) {
+            audio.play()
+            icon.setAttribute("src", "../../static/pause.svg")
+        } else {
+            audio.pause()
+            icon.setAttribute("src", "../../static/play.svg")
+        }
+    }
+
+    const end = (icon) => {
+        icon.setAttribute("src", "../../static/play.svg")
+    }
+</script>
 {% endblock %}
+
