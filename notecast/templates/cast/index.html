@@ -12,13 +12,18 @@
     </div>
     {% for cast in casts %}
     <div class="notecast">
-        <img onclick="play({{ cast['id'] }})" id="{{ cast['id'] }}-icon" width="40" src="../../static/play.svg" />
+        <img style="cursor: pointer; padding-top: 4px; margin-right: 16px;" onclick="play({{ cast['id'] }})" id="{{ cast['id'] }}-icon" width="40" height="40" src="../../static/play.svg" />
+        <img width="40" height="40" src="../../static/plant.png" />
+        <div style="margin-left: 16px">
+        <p class="notecast-title">{{ cast["title"] }}</p>
+        <p id="{{ cast['id'] }}-duration" class="notecast-duration">00:00</p>
+        </div>
     </div>
     {% endfor %}
 
     {% for cast in casts %}
         <p>{{ cast["title"] }}</p>
-        <audio id="{{ cast['id'] }}" controls src="{{ cast['location'] }}"></audio>
+        <audio ontimeupdate="updateTime({{ cast['id'] }})" id="{{ cast['id'] }}" controls src="{{ cast['location'] }}"></audio>
         <p>{{ cast["created"] }}</p>
         <button onclick="play({{ cast['id'] }})">play</button>
         <script>
@@ -31,7 +36,7 @@
         const audio = document.getElementById(id)
         const icon = document.getElementById(`${id}-icon`)
 
-        audio.addEventListener('ended', () => end(icon))
+        audio.addEventListener('ended', () => end(icon, id))
 
         if (audio.paused) {
             audio.play()
@@ -42,8 +47,20 @@
         }
     }
 
-    const end = (icon) => {
+    const end = (icon, id) => {
         icon.setAttribute("src", "../../static/play.svg")
+
+        document.getElementById(`${id}-duration`).innerHTML = "00:00"
+    }
+
+    const updateTime = (id) => {
+
+        const audio = document.getElementById(id)
+
+        const minutes = Math.floor(audio.currentTime / 60)
+        const seconds = Math.floor(audio.currentTime - minutes * 60)
+
+        document.getElementById(`${id}-duration`).innerHTML = `${("0" + minutes).slice(-2)}:${("0" + seconds).slice(-2)}` 
     }
 </script>
 {% endblock %}
