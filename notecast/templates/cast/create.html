@@ -21,6 +21,16 @@
             <option value="en-US-ChristopherNeural">Christopher (US)</option>
           </select>
         </div>
+        <div style="margin-top: 56px;">
+          <p style="margin-bottom: 6px;">Select image:</p>
+          <div style="display: flex; flex-direction: row;">
+            <select style="width: 351px" class="select-box" for="voice" name="voice">
+              <option value="person.png">Person</option>
+              <option value="plant.png">Plant</option>
+              <option value="pattern.png">Pattern</option>
+            </select>
+          </div>
+        </div>
         <input class="button" type="submit" style="min-width: 350px; margin-top: 19px" value="Create">
 
         {% for message in get_flashed_messages() %}
