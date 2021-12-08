@@ -9,11 +9,6 @@ def get_casts(user_id):
     database = get_database()
 
     casts = database.execute(
-        "SELECT *"
-        " FROM cast WHERE author_id='" + str(user_id) + "' ORDER BY created DESC"
-    )
-
-    casts = database.execute(
         "SELECT * FROM cast WHERE author_id=" + str(user_id) + " ORDER BY created DESC"
     ).fetchall()
 
