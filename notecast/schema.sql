@@ -14,5 +14,6 @@ CREATE TABLE cast (
     title TEXT NOT NULL,
     script TEXT NOT NULL,
     location TEXT NOT NULL,
+    image TEXT NOT NULL,
     FOREIGN KEY (author_id) REFERENCES user (id)
 );

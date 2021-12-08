@@ -23,12 +23,13 @@
         </div>
         <div style="margin-top: 56px;">
           <p style="margin-bottom: 6px;">Select image:</p>
-          <div style="display: flex; flex-direction: row;">
-            <select style="width: 351px" class="select-box" for="voice" name="voice">
-              <option value="person.png">Person</option>
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <select onchange="onChange(this.value)" style="width: 300px" class="select-box" for="image" name="image">
+              <option selected value="person.png">Person</option>
               <option value="plant.png">Plant</option>
               <option value="pattern.png">Pattern</option>
             </select>
+            <img id="image" style="margin-left: 12px;" width="45" height="45" src="../../static/person.png" />
           </div>
         </div>
         <input class="button" type="submit" style="min-width: 350px; margin-top: 19px" value="Create">
@@ -41,4 +42,11 @@
     <a href="/"><p style="margin-top: 24px; font-size: 12px; text-align: center;">Cancel</p></a>
   </div>
 </div>
+
+<script>
+  const onChange = (value) => {
+      const image = document.getElementById("image")
+      image.setAttribute("src", `../../static/${value}`)
+  }
+</script>
 {% endblock %}

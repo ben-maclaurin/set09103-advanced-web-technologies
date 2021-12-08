@@ -15,7 +15,7 @@ def get_casts(user_id):
     return casts
 
 
-def create_cast(title, script, user_id, voice):
+def create_cast(title, script, user_id, voice, image):
     error = None
 
     if not title:
@@ -30,9 +30,9 @@ def create_cast(title, script, user_id, voice):
         name = str(uuid.uuid4())
 
         database.execute(
-            "INSERT INTO cast (title, script, location, author_id)"
-            "VALUES (?, ?, ?, ?)",
-            (title, script, os.environ.get("BUCKET_URL") + name + ".mp3", user_id),
+            "INSERT INTO cast (title, script, location, author_id, image)"
+            "VALUES (?, ?, ?, ?, ?)",
+            (title, script, os.environ.get("BUCKET_URL") + name + ".mp3", user_id, image),
         )
 
         database.commit()

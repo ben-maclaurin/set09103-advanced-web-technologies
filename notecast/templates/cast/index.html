@@ -13,7 +13,7 @@
     {% for cast in casts %}
     <div class="notecast">
         <img style="cursor: pointer; padding-top: 4px; margin-right: 16px;" onclick="play({{ cast['id'] }})" id="{{ cast['id'] }}-icon" width="40" height="40" src="../../static/play.svg" />
-        <img width="40" height="40" src="../../static/plant.png" />
+        <img width="40" height="40" src="../../static/{{ cast['image'] }}" />
         <div style="margin-left: 16px">
         <p class="notecast-title">{{ cast["title"] }}</p>
         <p id="{{ cast['id'] }}-duration" class="notecast-duration">00:00</p>
