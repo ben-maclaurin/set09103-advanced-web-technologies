@@ -13,8 +13,9 @@ blueprint = Blueprint("cast", __name__, url_prefix="/")
 
 
 @blueprint.route("/")
+@protected
 def index():
-    return render_template("cast/index.html", casts=get_casts())
+    return render_template("cast/index.html", casts=get_casts(g.user["id"]))
 
 
 @blueprint.route("/create", methods=("GET", "POST"))

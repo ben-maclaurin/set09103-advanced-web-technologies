@@ -5,13 +5,16 @@ import uuid
 import os
 
 
-def get_casts():
+def get_casts(user_id):
     database = get_database()
 
     casts = database.execute(
-        "SELECT c.id, title, script, location, created, author_id"
-        " FROM cast c JOIN user u ON c.author_id = u.id"
-        " ORDER BY created DESC"
+        "SELECT *"
+        " FROM cast WHERE author_id='" + str(user_id) + "' ORDER BY created DESC"
+    )
+
+    casts = database.execute(
+        "SELECT * FROM cast WHERE author_id=" + str(user_id) + " ORDER BY created DESC"
     ).fetchall()
 
     return casts
