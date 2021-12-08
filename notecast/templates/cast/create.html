@@ -13,9 +13,11 @@
           <textarea placeholder="Enter a script ..." class="input-field" name="script" for="script" style="resize: vertical; margin-top: 8px; width: 331px" id="script" required></textarea>
         </div>
         <select for="voice" name="voice">
-          <option value="en-GB-SoniaNeural">Sonia</option>
-          <option value="en-GB-LibbyNeural">Libby</option>
-          <option value="en-GB-RyanNeural">Ryan</option>
+          <option value="en-GB-SoniaNeural">Sonia (UK)</option>
+          <option value="en-GB-LibbyNeural">Libby (UK)</option>
+          <option value="en-GB-RyanNeural">Ryan (UK)</option>
+          <option value="en-US-JennyNeural">Jenny (US)</option>
+          <option value="en-US-ChristopherNeural">Christopher (US)</option>
         </select>
         <input class="button" type="submit" style="min-width: 350px; margin-top: 19px" value="Create">
         {% for message in get_flashed_messages() %}
