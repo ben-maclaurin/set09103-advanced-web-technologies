@@ -17,7 +17,7 @@ def get_casts():
     return casts
 
 
-def create_cast(title, script, user_id):
+def create_cast(title, script, user_id, voice):
     error = None
 
     if not title:
@@ -39,6 +39,6 @@ def create_cast(title, script, user_id):
 
         database.commit()
 
-        synthesise_speech(script, name)
+        synthesise_speech(script, name, voice)
 
     return error

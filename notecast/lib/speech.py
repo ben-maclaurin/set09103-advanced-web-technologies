@@ -16,10 +16,10 @@ def retrieve_token():
     return response.text
 
 
-def synthesise_speech(script, name):
+def synthesise_speech(script, name, voice):
     token = retrieve_token()
     xml = (
-        "<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Male' name='en-GB-SoniaNeural'>"
+        "<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Male' name='" + voice + "'>"
         + script
         + "</voice></speak>"
     )
@@ -46,3 +46,4 @@ def upload_to_s3(file, name):
     s3 = boto3.resource("s3")
 
     s3.Bucket("notecast-bucket").put_object(Key="casts/" + name + ".mp3", Body=file)
+

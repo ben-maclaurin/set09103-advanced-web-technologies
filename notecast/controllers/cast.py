@@ -23,8 +23,9 @@ def create():
     if request.method == "POST":
         title = request.form["title"]
         script = request.form["script"]
+        voice = request.form["voice"]
 
-        result = create_cast(title, script, g.user["id"])
+        result = create_cast(title, script, g.user["id"], voice)
 
         if result is not None:
             flash(result)

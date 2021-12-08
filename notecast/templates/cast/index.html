@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<div style="margin-left: 100px; margin-right: 100px; margin-top: 75px;">
     <p class="heading-one" style="margin-bottom: 16px">Notecasts</p>
     <div style="display: flex; width: 100%;">
             <div class="blue-pill">{{ casts|length }} notecasts</div>
@@ -13,4 +14,5 @@
         <p>{{ cast["title"] }}</p>
         <audio id="audio" controls src="{{ cast['location'] }}"></audio>
     {% endfor %}
+        </div>
 {% endblock %}
