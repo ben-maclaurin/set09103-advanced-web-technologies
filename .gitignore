@@ -15,3 +15,10 @@ build/
 
 .env
 .DS_Store
+
+report/report.aux
+report/report.log
+report/report.out
+report/report.pdf
+report/report.tex
+report/report.toc

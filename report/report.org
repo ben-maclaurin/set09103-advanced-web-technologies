@@ -1,0 +1,13 @@
+#+TITLE: SET09103 Advanced Web Technologies 2021/22 - Part 2
+
+* Site Location
+The application is hosted on the assigned virtual machine (webtech-07) using apache2. It is available to view at: http://webtech-07.napier.ac.uk:5000/. A dotenv file has been placed in the root of the project, as well as various AWS defaults inside the user directory.
+
+* Difference between plan and implementation
+
+
+* Potential enhancements
+A list of potential enhancements
+
+* Challenges faced
+A list of challenges faced when working on the project.
