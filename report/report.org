@@ -4,7 +4,7 @@
 The application is hosted on the assigned virtual machine (webtech-07) using apache2. It is available to view at: http://webtech-07.napier.ac.uk:5000/. A dotenv file has been placed in the root of the project, as well as various AWS defaults inside the user directory.
 
 * Difference between plan and implementation
-
+Inevitably, Notecast has diverged from its intended, and original, trajectory. This is expected with all technical projects, as predicting the outcome for every possible facet of an idea is impractical and unfeasible. Despite this, Notecast, broadly speaking, fulfills its purpose as a text-to-speech synthesiser and note collation service.
 
 * Potential enhancements
 A list of potential enhancements
