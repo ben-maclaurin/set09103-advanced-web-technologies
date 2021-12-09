@@ -9,6 +9,9 @@
                 <input class="small-button" type="submit" style="padding-left: 12px; padding-right: 12px" value="Create a notecast">
             </form>
     </div>
+    {% if casts|length < 1 %}
+        <p style="text-align: center; opacity: 0.25; margin-top: 100px;" class="heading-one">No casts</p>
+    {% endif %}
     {% for cast in casts %}
     <div class="notecast">
         <img style="cursor: pointer; padding-top: 4px; margin-right: 16px;" onclick="play({{ cast['id'] }})" id="{{ cast['id'] }}-icon" width="40" height="40" src="../../static/play.svg" />
