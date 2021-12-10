@@ -5,11 +5,48 @@ Notecast enables students to convert notes into synthesised speech. The generate
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+First, clone the repository:
 
 ```bash
-pip install foobar
+git clone https://github.com/ben-maclaurin/set09103-advanced-web-technologies.git
 ```
+
+Next, create virtual environment inside of the `set09103-advanced-web-technologies` directory:
+
+```bash
+python3 -m venv venv
+```
+
+Once a virtual environment has been initialised, activate it:
+
+```bash
+. venv/bin/activate
+```
+
+Now install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+After installing the requirements, initialise the database using:
+
+```bash
+flask init-database 
+```
+
+Now create a `dotenv` file in the project root. All of the variables are required. Some examples have been included below: 
+
+```bash
+# /set09103-advanced-web-technologies/.env 
+
+export SECRET_KEY=some_scret_key
+export DATABASE=notecast.sqlite
+export MICROSOFT_REGION=eastus
+export MICROSOFT_KEY=ca29b34f9eb9d39d939b9339f3929d
+export BUCKET_URL=https://some-bucket-url.s3.us-east-2.amazonaws.com/
+```
+
 
 ## Usage
 
