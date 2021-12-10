@@ -1,10 +1,18 @@
 #+TITLE: SET09103 Advanced Web Technologies 2021/22 - Part 2
 
 * Site Location
-The application is hosted on the assigned virtual machine (webtech-07) using apache2. It is available to view at: http://webtech-07.napier.ac.uk:5000/. A dotenv file has been placed in the root of the project, as well as various AWS defaults inside the user directory.
+The application is hosted on the assigned virtual machine (webtech-07) using apache2 and gunicorn. It is available to view at: http://webtech-07.napier.ac.uk:5000/. A dotenv file has been placed in the root of the project, as well as various AWS defaults inside the user directory. These are operation requirements for the TTS service.
 
 * Difference between plan and implementation
 Inevitably, Notecast has diverged from its intended, and original, trajectory. This is expected with all technical projects, as predicting the outcome for every possible facet of an idea is impractical and unfeasible. Despite this, Notecast, broadly speaking, fulfills its purpose as a text-to-speech synthesiser and note collation service.
+
+The first difference relates to terminology. In the planning phase, "notecasts" were referred to as "podcasts". This has been revised for a better sense of product and brand.
+
+In addition to the change of terminology, the grid-like design style has been substituted with a row-based interface. This row-based layout aims to reproduce the familiarities of audio-centric apps like Spotify and Soundcloud. This approach has favoured simplicity and functionality over user agency or freedom. It also proved to be less convoluted during the development phase. Consequently, the site presents as a more traditional podcast service, as opposed to the collaborative board it initially intended to be. For much the same reasons, the comment section and social aspects have also been omitted.
+
+Early research favoured the use of Microsoft's Azure streaming service for speech synthesis. Instead, the decision was made to request a .mp3 file from the endpoint and store it in an S3 bucket. Internally the web server persists a path for each audio file against its respective notecast. This is an improvement on the streaming service. Not only is the system less expensive in terms of compute, it also betters the accessibility of the site. Such a feature could be extended in future to allow for offline-capabilities or file downloads (users have more autonomy/ownership).
+
+The final implementation does not include Flask-SQLAlchemy as a dependency. Due to the relatively simple nature of the project, raw SQL queries suffice. The MVC application structure originally cited has been applied, bar a small caveat. The "view" layer is not literally named so in the codebase, but instead resides in a "templates" directory. This is to ensure parity with Flask's default templating engine, Jinja.
 
 * Potential enhancements
 A list of potential enhancements
