@@ -2,6 +2,11 @@
 
 Notecast enables students to convert notes into synthesised speech. The generated speech is served as audio files via a clean, minimal interface. Emphasis is placed on ensuring generated speech is convincing, with APIs from Microsoft's cognitive service helping to achieve this.
 
+## Prerequisites
+
+- Microsoft Azure account with a valid payment method on file
+- Amazon AWS S3 bucket 
+- Python >=2.7.16
 
 ## Installation
 
@@ -47,21 +52,19 @@ export MICROSOFT_KEY=ca29b34f9eb9d39d939b9339f3929d
 export BUCKET_URL=https://some-bucket-url.s3.us-east-2.amazonaws.com/
 ```
 
+Finally, your AWS credentials are required for `boto3` to work. [Follow these instructions to set up](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#configuration).
 
 ## Usage
 
-```python
-import foobar
+Run the following Bash commands:
 
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+```bash
+export FLASK_APP=notecast
+export FLASK_ENV=development 
+flask run
 ```
+
+The application should now be available at `http://127.0.0.1:5000/`.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
