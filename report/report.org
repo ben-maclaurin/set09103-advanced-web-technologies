@@ -14,8 +14,16 @@ Early research favoured the use of Microsoft's Azure streaming service for speec
 
 The final implementation does not include Flask-SQLAlchemy as a dependency. Due to the relatively simple nature of the project, raw SQL queries suffice. The MVC application structure originally cited has been applied, bar a small caveat. The "view" layer is not literally named so in the codebase, but instead resides in a "templates" directory. This is to ensure parity with Flask's default templating engine, Jinja.
 
+It was originally suggested that Vim would be used due to its compatibility with Linux. Instead, I ended up developing the application locally, using Emacs. With the help of version control, I was able to push changes using standard commit conventions, then clone the whole application on the VM once complete. This workflow proved to be more efficient.
+
 * Potential enhancements
-A list of potential enhancements
+There are many potential enhancements that could be made to Notecast. One of the foremost and pressing concerns is testing. The current implementation lacks sufficient test coverage. No effort has been made to create unit tests, and this hurts both maintainability and reliability. Such a performance-critical enhancement would be integral to the further success of the platform.
+
+Whilst I only prefer to sprinkle on the odd JavaScript when required, the value that some JS frameworks introduce cannot be ignored. The application already involves some reactivity. A potential enhancement could be to integrate a framework like Svelte or Vue to help handle internal state if the feature set or complexity increases.
+
+For the sake of privacy concerns, it would be nice to implement a "Delete account" button, or data download option. This would be relatively easy to achieve and greatly enhance user satisfaction.
+
+The beauty of Flask lies in its straightforwardness. I do feel, however, the project could benefit from better design. Inspiration could be taken from well-devised frameworks such as Elixir's Phoenix. Alternatively, the whole project could be migrated to a more sophisticated Python framework such as Django. And, whilst raw SQL queries are powerful when used correctly, the developer experience could be advanced through the use of an ORM such as Flask-SQLAlchemy.
 
 * Challenges faced
 A list of challenges faced when working on the project.
