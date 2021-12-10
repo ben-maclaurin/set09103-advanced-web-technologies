@@ -1,6 +1,7 @@
-# Foobar
+# Notecast
 
-Foobar is a Python library for dealing with word pluralization.
+Notecast enables students to convert notes into synthesised speech. The generated speech is served as audio files via a clean, minimal interface. Emphasis is placed on ensuring generated speech is convincing, with APIs from Microsoft's cognitive service helping to achieve this.
+
 
 ## Installation
 
